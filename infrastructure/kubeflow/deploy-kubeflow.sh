@@ -9,11 +9,7 @@ sleep 5
 
 juju wait  -wv -m kubeflow
 
-#kubectl apply -f pipeline-patch.yaml
-
-#kubectl wait  --namespace=kubeflow --for=condition=Ready pod   --timeout=-1s --all
-
-#kubectl delete  mutatingwebhookconfigurations/katib-mutating-webhook-config validatingwebhookconfigurations/katib-validating-webhook-config
+kubectl apply -f pipeline-patch.yaml
 
 SvcIP=`kubectl get svc/ambassador -o json -n kubeflow | jq '.status.loadBalancer.ingress[0].ip' | tr -d '"' `
 juju config dex-auth public-url=http://$SvcIP.xip.io:80

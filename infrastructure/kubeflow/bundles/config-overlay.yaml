@@ -1,6 +1,15 @@
 description: Kubeflow dex configuration
 applications:
-  dex:
+  dex-auth:
     options:
       static-username: "admin"
       static-password: admin
+  oidc-gatekeeper:
+    options:
+      client-secret: password123
+  pipelines-api:
+    options:
+      minio-secret-key: minio123
+  pipelines-db:
+    options:
+      root_password: password123

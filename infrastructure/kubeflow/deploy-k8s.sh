@@ -3,7 +3,7 @@
 
 juju add-model k8s fce-lab
 juju set-model-constraints -m k8s zones=kubeflow
-juju deploy ./k8s-bundle.yaml
+juju deploy ./bundles/k8s-bundle.yaml
 
 juju wait -vw -m k8s
 
