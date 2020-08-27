@@ -1,0 +1,473 @@
+---
+applications:
+  metacontroller:
+    annotations:
+      gui-x: "-300"
+      gui-y: "518"
+    source: "./charms/metacontroller"
+    charm: "cs:~kubeflow-charmers/metacontroller-92"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  pipelines-persistence:
+    annotations:
+      gui-x: "150"
+      gui-y: "777"
+    source: "./charms/pipelines-persistence"
+    charm: "cs:~kubeflow-charmers/pipelines-persistence-196"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  kubeflow-profiles:
+    annotations:
+      gui-x: "600"
+      gui-y: "518"
+    source: "./charms/kubeflow-profiles"
+    charm: "cs:~kubeflow-charmers/kubeflow-profiles-65"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  jupyter-controller:
+    annotations:
+      gui-x: "450"
+      gui-y: "-259"
+    source: "./charms/jupyter-controller"
+    charm: "cs:~kubeflow-charmers/jupyter-controller-200"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  modeldb-store:
+    annotations:
+      gui-x: "-150"
+      gui-y: "-777"
+    source: "./charms/modeldb-store"
+    charm: "cs:~kubeflow-charmers/modeldb-store-94"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  argo-controller:
+    annotations:
+      gui-x: "600"
+      gui-y: "0"
+    source: "./charms/argo-controller"
+    charm: "cs:~kubeflow-charmers/argo-controller-190"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  oidc-gatekeeper:
+    annotations:
+      gui-x: "750"
+      gui-y: "-259"
+    source: "./charms/oidc-gatekeeper"
+    charm: "cs:~kubeflow-charmers/oidc-gatekeeper-47"
+    config: {}
+    constraints: ~
+    expose: false
+    options:
+      client-secret: password123
+    resources: {}
+    scale: 1
+  pipelines-ui:
+    annotations:
+      gui-x: "150"
+      gui-y: "259"
+    source: "./charms/pipelines-ui"
+    charm: "cs:~kubeflow-charmers/pipelines-ui-104"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  pipelines-visualization:
+    annotations:
+      gui-x: "450"
+      gui-y: "777"
+    source: "./charms/pipelines-visualization"
+    charm: "cs:~kubeflow-charmers/pipelines-visualization-41"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  metadata-api:
+    annotations:
+      gui-x: "-300"
+      gui-y: "-518"
+    source: "./charms/metadata-api"
+    charm: "cs:~kubeflow-charmers/metadata-api-56"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  tf-job-operator:
+    annotations:
+      gui-x: "-600"
+      gui-y: "0"
+    source: "./charms/tf-job-operator"
+    charm: "cs:~kubeflow-charmers/tf-job-operator-188"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  ambassador:
+    annotations:
+      gui-x: "0"
+      gui-y: "0"
+    source: "./charms/ambassador"
+    charm: "cs:~kubeflow-charmers/ambassador-104"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  dex-auth:
+    annotations:
+      gui-x: "600"
+      gui-y: "-518"
+    source: "./charms/dex-auth"
+    charm: "cs:~kubeflow-charmers/dex-auth-48"
+    config: {}
+    constraints: ~
+    expose: false
+    options:
+      static-username: "admin"
+      static-password: admin
+    resources: {}
+    scale: 1
+  katib-controller:
+    annotations:
+      gui-x: "-450"
+      gui-y: "259"
+    source: "./charms/katib-controller"
+    charm: "cs:~kubeflow-charmers/katib-controller-100"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  modeldb-backend:
+    annotations:
+      gui-x: "0"
+      gui-y: "-518"
+    source: "./charms/modeldb-backend"
+    charm: "cs:~kubeflow-charmers/modeldb-backend-99"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  pipelines-viewer:
+    annotations:
+      gui-x: "-300"
+      gui-y: "0"
+    source: "./charms/pipelines-viewer"
+    charm: "cs:~kubeflow-charmers/pipelines-viewer-127"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  pytorch-operator:
+    annotations:
+      gui-x: "450"
+      gui-y: "-777"
+    source: "./charms/pytorch-operator"
+    charm: "cs:~kubeflow-charmers/pytorch-operator-194"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  katib-ui:
+    annotations:
+      gui-x: "-150"
+      gui-y: "259"
+    source: "./charms/katib-ui"
+    charm: "cs:~kubeflow-charmers/katib-ui-93"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  kubeflow-dashboard:
+    annotations:
+      gui-x: "750"
+      gui-y: "259"
+    source: "./charms/kubeflow-dashboard"
+    charm: "cs:~kubeflow-charmers/kubeflow-dashboard-61"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  modeldb-db:
+    annotations:
+      gui-x: "300"
+      gui-y: "-518"
+    source: ~
+    charm: "cs:~charmed-osm/mariadb-k8s-32"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  pipelines-db:
+    annotations:
+      gui-x: "0"
+      gui-y: "518"
+    source: ~
+    charm: "cs:~charmed-osm/mariadb-k8s-32"
+    config: {}
+    constraints: ~
+    expose: false
+    options:
+      root_password: password123
+    resources: {}
+    scale: 1
+  jupyter-web:
+    annotations:
+      gui-x: "150"
+      gui-y: "-259"
+    source: "./charms/jupyter-web"
+    charm: "cs:~kubeflow-charmers/jupyter-web-106"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  metadata-ui:
+    annotations:
+      gui-x: "-150"
+      gui-y: "-259"
+    source: "./charms/metadata-ui"
+    charm: "cs:~kubeflow-charmers/metadata-ui-56"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  modeldb-ui:
+    annotations:
+      gui-x: "150"
+      gui-y: "-777"
+    source: "./charms/modeldb-ui"
+    charm: "cs:~kubeflow-charmers/modeldb-ui-94"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  pipelines-api:
+    annotations:
+      gui-x: "300"
+      gui-y: "518"
+    source: "./charms/pipelines-api"
+    charm: "cs:~kubeflow-charmers/pipelines-api-110"
+    config: {}
+    constraints: ~
+    expose: false
+    options:
+      minio-secret-key: "minio123"
+    resources: {}
+    scale: 1
+  pipelines-scheduledworkflow:
+    annotations:
+      gui-x: "-150"
+      gui-y: "777"
+    source: "./charms/pipelines-scheduledworkflow"
+    charm: "cs:~kubeflow-charmers/pipelines-scheduledworkflow-191"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  argo-ui:
+    annotations:
+      gui-x: "300"
+      gui-y: "0"
+    source: "./charms/argo-ui"
+    charm: "cs:~kubeflow-charmers/argo-ui-102"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  katib-db-manager:
+    annotations:
+      gui-x: "-750"
+      gui-y: "259"
+    source: "./charms/katib-manager"
+    charm: "cs:~kubeflow-charmers/katib-manager-97"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  metadata-db:
+    annotations:
+      gui-x: "-600"
+      gui-y: "-518"
+    source: ~
+    charm: "cs:~charmed-osm/mariadb-k8s-32"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  metadata-envoy:
+    annotations:
+      gui-x: "-750"
+      gui-y: "-259"
+    source: "./charms/metadata-envoy"
+    charm: "cs:~kubeflow-charmers/metadata-envoy-40"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  seldon-core:
+    annotations:
+      gui-x: "900"
+      gui-y: "0"
+    source: "./charms/seldon-core"
+    charm: "cs:~kubeflow-charmers/seldon-core-44"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  metadata-grpc:
+    annotations:
+      gui-x: "-450"
+      gui-y: "-259"
+    source: "./charms/metadata-grpc"
+    charm: "cs:~kubeflow-charmers/metadata-grpc-38"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+  katib-db:
+    annotations:
+      gui-x: "-600"
+      gui-y: "518"
+    source: ~
+    charm: "cs:~charmed-osm/mariadb-k8s-32"
+    config: {}
+    constraints: ~
+    expose: false
+    options:
+      database: katib
+      root_password: password123
+    resources: {}
+    scale: 1
+  minio:
+    annotations:
+      gui-x: "450"
+      gui-y: "259"
+    source: "./charms/minio"
+    charm: "cs:~kubeflow-charmers/minio-108"
+    config: {}
+    constraints: ~
+    expose: false
+    options: {}
+    resources: {}
+    scale: 1
+bundle: kubernetes
+description: ~
+relations:
+  - - ambassador
+    - argo-ui
+  - - ambassador
+    - jupyter-web
+  - - ambassador
+    - katib-ui
+  - - ambassador
+    - metadata-ui
+  - - ambassador
+    - pipelines-ui
+  - - ambassador
+    - pipelines-viewer
+  - - argo-controller
+    - minio
+  - - dex-auth
+    - oidc-gatekeeper
+  - - katib-db-manager
+    - katib-db
+  - - kubeflow-profiles
+    - jupyter-web
+  - - kubeflow-profiles
+    - kubeflow-dashboard
+  - - metadata-api
+    - metadata-db
+  - - "metadata-api:metadata-api"
+    - "metadata-ui:metadata-api"
+  - - metadata-grpc
+    - metadata-db
+  - - metadata-grpc
+    - metadata-envoy
+  - - "metadata-grpc:metadata-grpc"
+    - "metadata-ui:metadata-grpc"
+  - - modeldb-backend
+    - modeldb-db
+  - - modeldb-backend
+    - modeldb-store
+  - - modeldb-backend
+    - modeldb-ui
+  - - pipelines-api
+    - pipelines-db
+  - - pipelines-api
+    - pipelines-persistence
+  - - "pipelines-api:kubeflow-profiles"
+    - "kubeflow-profiles:kubeflow-profiles"
+  - - "pipelines-api:minio"
+    - "minio:minio"
+  - - "pipelines-api:pipelines-api"
+    - "pipelines-ui:pipelines-api"
+  - - "pipelines-api:pipelines-visualization"
+    - "pipelines-visualization:pipelines-visualization"
+  - - "pipelines-ui:minio"
+    - "minio:minio"
+series: ~

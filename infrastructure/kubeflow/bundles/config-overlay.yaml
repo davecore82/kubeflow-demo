@@ -1,0 +1,6 @@
+description: Kubeflow dex configuration
+applications:
+  dex:
+    options:
+      static-username: "admin"
+      static-password: admin

@@ -1,0 +1,171 @@
+series: bionic
+machines:
+  "0":
+    series: bionic
+    constraints: tags=master
+  "1":
+    series: bionic
+    constraints: tags=master
+  "2":
+    series: bionic
+    constraints: tags=worker
+  "3":
+    series: bionic
+    constraints: tags=worker
+  "4":
+    series: bionic
+    constraints: tags=worker
+  
+  "5":
+    series: bionic
+    constraints: tags=worker
+  
+ 
+services:
+  ceph-mon:
+    charm: cs:ceph-mon
+    num_units: 3
+    bindings:
+      "": oam
+      public: oam
+    options:
+      expected-osd-count: 5
+      source: cloud:bionic-stein
+      monitor-count: 3
+      customize-failure-domain: False
+    to:
+    - lxd:0
+    - lxd:1
+    - lxd:2
+  ceph-osd:
+    charm: cs:ceph-osd
+    num_units: 5
+    bindings:
+      "": oam
+      public: oam
+      cluster: oam
+    options:
+            #osd-encrypt: true
+      # osd-encrypt-keymanager: vault
+      osd-devices: /dev/vdb
+      osd-journal: 
+      source: cloud:bionic-stein
+      customize-failure-domain: False
+      autotune: true
+      aa-profile-mode: complain
+    to:
+    - '0'
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+  ceph-radosgw:
+    charm: cs:ceph-radosgw
+    num_units: 1
+    options:
+      source: cloud:bionic-stein
+    bindings:
+      "": oam
+    to:
+    - lxd:1
+  # canal:
+  #   charm: cs:~containers/canal
+  easyrsa:
+    bindings:
+      "": oam
+    charm: cs:~containers/easyrsa
+    num_units: 1
+    to:
+    - lxd:0
+  etcd:
+    bindings:
+      "": oam
+    charm: cs:etcd
+    num_units: 1
+    options:
+      channel: 3.3/stable
+    to:
+    - 0
+  containerd:
+    charm: cs:~containers/containerd
+    options:
+      http_proxy: http://squid.internal:3128
+      https_proxy: http://squid.internal:3128
+      no_proxy: 172.16.7.0/24
+
+  flannel:
+    charm: cs:~containers/flannel
+    resources:
+      flannel-amd64: 610
+      flannel-arm64: 607
+      flannel-s390x: 594
+  # kubeapi-load-balancer:
+  #   charm: cs:~containers/kubeapi-load-balancer
+  #   expose: true
+  #   num_units: 1
+  #   to:
+  #    - 0
+  kubernetes-master:
+    charm: cs:~containers/kubernetes-master
+    num_units: 1
+    options:
+      channel: 1.17/stable
+      ha-cluster-vip: 172.27.32.22 
+      # XXX: bug 1841800
+      authorization-mode: "RBAC,Node"
+      allow-privileged: "true"
+      # enable-keystone-authorization: "true"
+    to:
+    - 1
+  kubernetes-worker:
+    charm: cs:~containers/kubernetes-worker
+    expose: true
+    num_units: 4
+    options:
+      channel: 1.17/stable
+      allow-privileged: "true"
+    to:
+    - 2
+    - 3
+    - 4
+    - 5
+
+
+relations:
+- - kubernetes-master:kube-api-endpoint
+  - kubernetes-worker:kube-api-endpoint
+- - kubernetes-master:kube-control
+  - kubernetes-worker:kube-control
+- - kubernetes-master:certificates
+  - easyrsa:client
+- - etcd:certificates
+  - easyrsa:client
+- - kubernetes-master:etcd
+  - etcd:db
+- - kubernetes-worker:certificates
+  - easyrsa:client
+- - flannel:etcd
+  - etcd:db
+- - flannel:cni
+  - kubernetes-master:cni
+- - flannel:cni
+  - kubernetes-worker:cni
+- - containerd
+  - kubernetes-master
+- - containerd
+  - kubernetes-worker
+- - ceph-mon
+  - ceph-osd
+- - ceph-mon:admin
+  - kubernetes-master
+- - ceph-mon:client
+  - kubernetes-master
+# - - kubernetes-master:kube-api-endpoint
+#   - kubeapi-load-balancer:apiserver
+# - - kubernetes-master:loadbalancer
+#   - kubeapi-load-balancer:loadbalancer
+# - - kubernetes-worker:kube-api-endpoint
+#   - kubeapi-load-balancer:website
+# - - kubeapi-load-balancer:certificates
+#   - easyrsa:client
+- [ceph-radosgw, ceph-mon]
