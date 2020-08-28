@@ -1,2 +1,3 @@
 infrastructure/kubeflow/secrets
-infrastructure/kubeflow/generated
+
+infrastructure/kubeflow/generated/*

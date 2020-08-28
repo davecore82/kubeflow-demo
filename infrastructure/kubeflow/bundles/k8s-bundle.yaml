@@ -15,7 +15,6 @@ machines:
   "4":
     series: bionic
     constraints: tags=worker
-  
   "5":
     series: bionic
     constraints: tags=worker
