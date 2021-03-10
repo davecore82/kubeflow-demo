@@ -1,5 +1,5 @@
 #!/bin/bash -eu
-snap install juju --classic --channel 2.7/stable
+snap install juju --classic --channel latest/stable
 snap install juju-lint --classic
 snap install juju-wait --classic
 snap install juju-crashdump --classic
