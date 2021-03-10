@@ -2,7 +2,8 @@
 juju add-k8s kubeflow-k8s
 juju add-model kubeflow kubeflow-k8s --config update-status-hook-interval=30s
 
-juju deploy cs:~kubeflow-charmers/bundle/kubeflow-lite-6 --overlay ./bundles/config-overlay.yaml
+#juju deploy cs:~kubeflow-charmers/bundle/kubeflow-lite-6 --overlay ./bundles/config-overlay.yaml
+juju deploy cs:~kubeflow-charmers/bundle/kubeflow-lite --overlay ./bundles/config-overlay.yaml
 
 sleep 5
 
