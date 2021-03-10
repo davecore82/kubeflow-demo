@@ -1,9 +1,9 @@
 #!/bin/bash
 
-juju add-model kafka fce-lab
-juju set-model-constraints -m kafka zones=kubeflow
+juju add-model kafka orangebox
 
-juju deploy -m  kafka ./bundles/kafka-bundle.yaml --overlay ./secrets/config-overlay.yaml
+#juju deploy -m  kafka ./bundles/kafka-bundle.yaml --overlay ./secrets/config-overlay.yaml
+juju deploy -m  kafka ./bundles/kafka-bundle.yaml 
 
 juju wait -vw -m kafka
 

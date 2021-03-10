@@ -1,6 +1,6 @@
 {
-    "user_id": "ubuntu8",
-    "display_name": "Ubuntu8 Ceph",
+    "user_id": "ubuntu",
+    "display_name": "Ubuntu Ceph",
     "email": "",
     "suspended": 0,
     "max_buckets": 1000,
@@ -8,9 +8,9 @@
     "subusers": [],
     "keys": [
         {
-            "user": "ubuntu8",
-            "access_key": "4D8JG1Q53HU12AWE8DM7",
-            "secret_key": "d8BA4vXDwY9Jmm34hPlD9zm6O3BQ8NB6Wk7gjtmx"
+            "user": "ubuntu",
+            "access_key": "D41NMCDDM8M4IXJ084Q9",
+            "secret_key": "1QR44ymwI7C7W2PTWMvljou2MDzCR3Gnl5F5Pi0P"
         }
     ],
     "swift_keys": [],

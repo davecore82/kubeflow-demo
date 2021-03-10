@@ -2,10 +2,8 @@ series: bionic
 machines:
   "0":
     series: bionic
-    constraints: tags=kafka
   "1":
     series: bionic
-    constraints: tags=zookeeper
 
 applications:
   zookeeper:

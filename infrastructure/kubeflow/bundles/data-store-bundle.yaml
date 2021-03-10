@@ -1,17 +1,9 @@
 series: bionic
-machines:
-  # KVMs
-  "0":
-    constraints: tags=elasticsearch
-    series: bionic
-  "1":
-    constraints: tags=elasticsearch
-    series: bionic
 applications:
   # HAcluster
   elasticsearch:
     charm: cs:elasticsearch
-    num_units: 2
+    num_units: 1
     options:
       firewall_enabled: False
       # If behind a firewall, specify the key/path to key here.
@@ -47,6 +39,3 @@ applications:
         fllxIu9XYmiBERQ/qPDlGRlOgVTd9xUfHFkzB52c70E=
         =92oX
         -----END PGP PUBLIC KEY BLOCK-----
-    to:
-    - 0
-    - 1
