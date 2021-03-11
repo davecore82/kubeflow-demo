@@ -2,7 +2,7 @@
 
 juju add-model serving kubeflow-k8s --config update-status-hook-interval=30s
 
-BUCKET_NAME=MYBUCKET
+BUCKET_NAME=mlbucket
 S3_ENDPOINT=$(juju run -m k8s --unit ceph-radosgw/0 "unit-get private-address")
 KAFKA_IP=$(juju run -m kafka --unit kafka/0 "unit-get private-address")
 

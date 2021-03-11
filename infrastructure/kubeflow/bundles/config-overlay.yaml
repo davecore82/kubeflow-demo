@@ -7,9 +7,9 @@ applications:
   oidc-gatekeeper:
     options:
       client-secret: password123
-  pipelines-api:
-    options:
-      minio-secret-key: minio123
+#  pipelines-api:
+#    options:
+#      minio-secret-key: minio123
   pipelines-db:
     options:
       root_password: password123

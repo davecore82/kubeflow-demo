@@ -9,8 +9,8 @@ import pandas as pd
 import load_data
 import preprocess
 
-elasicsearch_address="172.16.7.59"
-kafka_ip = "172.16.7.149"
+elasicsearch_address="172.27.33.35"
+kafka_ip = "172.27.32.191"
 kafka_port = "9092"
 
 producer = KafkaProducer(bootstrap_servers=kafka_ip + ':' + kafka_port, retries = 5)
